@@ -4,24 +4,23 @@ public class PracticeProblem {
 		int amount = -1;
 		boolean check = false;
 		boolean checkAgain = false;
-		String letter[] = word.split("");
+		int letter = word.length() - 1;
 		if (word.length()>=2){
-			if (letter[0]==letter[letter.length-1]){ // case where the string is already a good string
-				amount  = 0;
+			//case one
+			if (word.charAt(0)==word.charAt(letter)){
+				amount = 0;
 			}
-			for (int find = 1; find<letter.length; find++){ //checks if the same character exists
-				if (letter[0] == letter[find]){
-					check = true;
-					
+			// case two (first letter)
+			for (int at = 1; at<=letter; at++){
+				if (word.charAt(0)==word.charAt(at)){
+					amount = word.length() - (at+1);
 				}
-				if (letter[1]==letter[find+1]){
-					checkAgain = true;
+			}
+			// case two (second letter)
+			for (int current = 2; current<=letter; current++){
+				if (word.charAt(1)==word.charAt(current)){
+					amount  = (word.length() - (current+1))+1;
 				}
-				
-				if (check = true){
-					
-				}
-
 			}
 		}
 		return amount;
